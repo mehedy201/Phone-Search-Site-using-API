@@ -2,11 +2,11 @@
 *{
     margin: 0;
     padding: 0;
-    background: #091921;
 }
+
 /* Header Area Style  */
 .highlight{
-    color: yellow;
+    color: rgb(0, 122, 223);
 }
 .font-style{
     font-family: cursive;
@@ -14,27 +14,26 @@
 #search-input{
     width: 50%;
     padding: 10px;
-    color: white;
-    caret-color: white;
-    border: 2px solid #091921;
+    border: 2px solid rgb(255, 255, 255);
     outline: none;
-    box-shadow:inset -5px -5px 5px rgba(255, 255, 255, 0.05), inset 5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow: inset -3px -3px 5px rgba(100, 100, 100, 0.178), inset 3px 3px 5px rgba(83, 83, 83, 0.267);
     border-radius: 8px;
 }
 .fa-search{
     padding: 13px;
-    box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.05), 5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 -2px 5px rgba(143, 143, 143, 0.5), 0 2px 5px rgba(124, 124, 124, 0.733);
     border-radius: 8px;
 }
 .fa-search:hover{
-    box-shadow: inset -5px -5px 5px rgba(255, 255, 255, 0.05), inset 5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
 }
+
 /* Card Design  */
 .card{
     padding: 20px;
     border: 2px solid white !important;
     border-radius: 20px !important;
-    box-shadow: 0 -2px 15px rgba(143, 143, 143, 0.5), 0 2px 15px rgba(255, 255, 255, 0.233), inset -5px -5px 15px rgba(0, 0, 0, 0.178), inset 5px 5px 15px rgba(126, 126, 126, 0.267);
+    box-shadow: 0 -5px 15px rgba(143, 143, 143, 0.5), 0 5px 15px rgba(182, 182, 182, 0.233), inset -5px -5px 15px rgba(0, 0, 0, 0.178), inset 5px 5px 15px rgba(126, 126, 126, 0.267);
 }
 .card img{
     width: 50%;
@@ -47,14 +46,29 @@
     background-color: white;
 }
 .btn{
+    background-color: white !important;
     border-radius: 15px !important;
     box-shadow: 0 -2px 5px rgba(143, 143, 143, 0.5), 0 2px 5px rgba(124, 124, 124, 0.733);
-    border: 2px solid rgb(221, 221, 221);
+    border: 2px solid white !important;
+    color: black !important;
+    outline: none;
 }
 .btn:hover{
     box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
 }
 
+/* Modal Style  */
+.modal-header{
+    box-shadow: 0 -2px 5px rgba(143, 143, 143, 0.5), 0 2px 5px rgba(124, 124, 124, 0.733);
+}
+.modal-btn{
+    padding: 13px;
+    box-shadow: 0 -2px 5px rgba(143, 143, 143, 0.5), 0 2px 5px rgba(124, 124, 124, 0.733);
+    border-radius: 8px;
+}
+.modal-btn:hover{
+    box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
+}
 
 
 
