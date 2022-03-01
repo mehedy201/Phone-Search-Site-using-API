@@ -4,11 +4,22 @@ const searchText = () => {
     const searchValue = searchInput.value;
     searchInput.value = '';
     console.log(searchValue.length);
-    // input Field Condition
-    if(searchValue.length <= 0){
-        alert('false')
+    // Search input Field Condition
+    if(searchValue.length <= 0){ 
+        const phoneDisplayDiv = document.getElementById('show-phone');
+        // Clear Phone Display Div........
+        phoneDisplayDiv.textContent = '';
+        const showErrorDiv = document.getElementById('page-not-found');
+        showErrorDiv.textContent = '';
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <h1 class="py-5 text-center fw-bold text-secondary">Please Type Search Field</h1>                
+         `;
+         showErrorDiv.appendChild(div);
     }
     else{
+        const showErrorDiv = document.getElementById('page-not-found');
+        showErrorDiv.textContent = '';
         loadPhoneDetails(searchValue);
     }
     // loadPhoneDetails(searchValue);
