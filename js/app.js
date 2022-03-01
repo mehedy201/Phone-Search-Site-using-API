@@ -51,7 +51,6 @@ const displayPhoneFullDetails = phone => {
     showPhoneName.innerText = phone.name;
     // Get sensor array and sensor show div........
     const singleSensor = phone.mainFeatures.sensors;
-    const displaySensor = document.getElementById('displaySensor')
     // Creat div and set inner html afterthat append on modal..... 
     const div = document.createElement('div');
     div.innerHTML = `
@@ -71,11 +70,13 @@ const displayPhoneFullDetails = phone => {
         <div><h6 class="d-inline-block">Radio: </h6> <span>${phone.others.Radio}</span></div>
         <div><h6 class="d-inline-block">USB: </h6> <span>${phone.others.USB}</span></div>
         <h6 class="fw-bold pt-3">Sensor</h6>
-        ${singleSensor.forEach(sen => {
-            const li = document.createElement('li');
-            li.innerText = sen;
-              displaySensor.appendChild(li);
-            })}
+        
     `;
+    // Dom manupulation Sensor ................
+    singleSensor.forEach(sen => {
+        const li = document.createElement('li');
+        li.innerText = sen;
+        div.appendChild(li);
+        })
     modalBody.appendChild(div);
 };
