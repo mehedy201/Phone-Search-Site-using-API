@@ -3,13 +3,37 @@ const searchText = () => {
     const searchInput = document.getElementById('search-input');
     const searchValue = searchInput.value;
     searchInput.value = '';
-    loadPhoneDetails(searchValue);
+    console.log(searchValue.length);
+    // input Field Condition
+    if(searchValue.length <= 0){
+        alert('false')
+    }
+    else{
+        loadPhoneDetails(searchValue);
+    }
+    // loadPhoneDetails(searchValue);
+    
 };
 // Load JSON data -------------------------------------------------------------------------
 const loadPhoneDetails = searchText => {
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
-        .then(data => singlePhoneDetails(data.data));
+        .then(data => {
+            debugger
+            if(data.data.length === 0){
+                const showErrorDiv = document.getElementById('page-not-found');
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <h1 class="py-5 text-center fw-bold text-secondary">Mobile Phone NOT Found</h1>                
+                `;
+                showErrorDiv.appendChild(div);
+            }
+            else{
+                const showErrorDiv = document.getElementById('page-not-found');
+                showErrorDiv.textContent = '';
+                singlePhoneDetails(data.data);
+            }
+        });
 };
 // Get single Phone details ------------------------------------------------------------------
 const singlePhoneDetails = singlePhones => {
@@ -19,7 +43,8 @@ const singlePhoneDetails = singlePhones => {
     // Loop on phones and Set phone details .....
     singlePhones.forEach( phone => {
         const div = document.createElement('div');
-        div.classList = 'col';
+        div.classList.add('single-product')
+        // div.length.slice(0, 10);
         div.innerHTML = `
             <div class="card h-100">
                 <img src="${phone.image}" class="card-img-top" alt=""">
@@ -30,7 +55,7 @@ const singlePhoneDetails = singlePhones => {
                 </div>
             </div>
         `;
-        phoneDisplayDiv.appendChild(div);
+        phoneDisplayDiv.appendChild(div)
     });
 };
 
@@ -58,17 +83,17 @@ const displayPhoneFullDetails = phone => {
         <h6 class="pt-3 fw-bold">Brand: ${phone.brand}</h6>
         <h6 class="pb-3">${phone.releaseDate}</h6>
         <h6 class="fw-bold">Main Features</h6>
-        <div><h6 class="d-inline-block">ChipSet: </h6> <span>${phone.mainFeatures.chipSet}</span></div>
-        <div><h6 class="d-inline-block">Display Size: </h6> <span>${phone.mainFeatures.displaySize}</span></div>
-        <div><h6 class="d-inline-block">Memory: </h6> <span>${phone.mainFeatures.memory}</span></div>
-        <div><h6 class="d-inline-block">Storage: </h6> <span>${phone.mainFeatures.storage}</span></div>
+        <div><h6 class="d-inline-block">ChipSet: </h6> <span class="error">${phone.mainFeatures.chipSet}</span></div>
+        <div><h6 class="d-inline-block">Display Size: </h6> <span class="error">${phone.mainFeatures.displaySize}</span></div>
+        <div><h6 class="d-inline-block">Memory: </h6> <span class="error">${phone.mainFeatures.memory}</span></div>
+        <div><h6 class="d-inline-block">Storage: </h6> <span class="error">${phone.mainFeatures.storage}</span></div>
         <h6 class="fw-bold pt-3">Others</h6>
-        <div><h6 class="d-inline-block">WLAN: </h6> <span>${phone.others.WLAN}</span></div>
-        <div><h6 class="d-inline-block">Bluetooth: </h6> <span>${phone.others.Bluetooth}</span></div>
-        <div><h6 class="d-inline-block">GPS: </h6> <span>${phone.others.GPS}</span></div>
-        <div><h6 class="d-inline-block">NFC: </h6> <span>${phone.others.NFC}</span></div>
-        <div><h6 class="d-inline-block">Radio: </h6> <span>${phone.others.Radio}</span></div>
-        <div><h6 class="d-inline-block">USB: </h6> <span>${phone.others.USB}</span></div>
+        <div><h6 class="d-inline-block">WLAN: </h6> <span class="error">${phone.others?.WLAN}</span></div>
+        <div><h6 class="d-inline-block">Bluetooth: </h6> <span class="error">${phone.others?.Bluetooth}</span></div>
+        <div><h6 class="d-inline-block">GPS: </h6> <span class="error">${phone.others?.GPS}</span></div>
+        <div><h6 class="d-inline-block">NFC: </h6> <span class="error">${phone.others?.NFC}</span></div>
+        <div><h6 class="d-inline-block">Radio: </h6> <span class="error">${phone.others?.Radio}</span></div>
+        <div><h6 class="d-inline-block">USB: </h6> <span class="error">${phone.others?.USB}</span></div>
         <h6 class="fw-bold pt-3">Sensor</h6>
         
     `;
@@ -78,5 +103,7 @@ const displayPhoneFullDetails = phone => {
         li.innerText = sen;
         div.appendChild(li);
         })
+    //--------------------
+    // console.log(phone.others); 
     modalBody.appendChild(div);
 };

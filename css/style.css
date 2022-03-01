@@ -33,7 +33,7 @@
     padding: 20px;
     border: 2px solid white !important;
     border-radius: 20px !important;
-    box-shadow: 0 -5px 15px rgba(143, 143, 143, 0.5), 0 5px 15px rgba(182, 182, 182, 0.233), inset -5px -5px 15px rgba(0, 0, 0, 0.178), inset 5px 5px 15px rgba(126, 126, 126, 0.267);
+    box-shadow:  inset -5px -5px 15px rgba(0, 0, 0, 0.178), inset 5px 5px 15px rgba(126, 126, 126, 0.267);
 }
 .card img{
     width: 50%;
