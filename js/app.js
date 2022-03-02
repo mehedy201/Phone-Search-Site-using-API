@@ -3,7 +3,6 @@ const searchText = () => {
     const searchInput = document.getElementById('search-input');
     const searchValue = searchInput.value;
     searchInput.value = '';
-    console.log(searchValue.length);
     // Search input Field Condition
     if(searchValue.length <= 0){ 
         const phoneDisplayDiv = document.getElementById('show-phone');
@@ -30,7 +29,6 @@ const loadPhoneDetails = searchText => {
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
         .then(data => {
-            debugger
             if(data.data.length === 0){
                 const showErrorDiv = document.getElementById('page-not-found');
                 const div = document.createElement('div');
@@ -92,19 +90,19 @@ const displayPhoneFullDetails = phone => {
     div.innerHTML = `
         <img src="${phone.image}" alt="">
         <h6 class="pt-3 fw-bold">Brand: ${phone.brand}</h6>
-        <h6 class="pb-3">${phone.releaseDate}</h6>
+        <h6 class="pb-3">${phone.releaseDate? phone.releaseDate : 'Release date NOT found'}</h6>
         <h6 class="fw-bold">Main Features</h6>
         <div><h6 class="d-inline-block">ChipSet: </h6> <span class="error">${phone.mainFeatures.chipSet}</span></div>
         <div><h6 class="d-inline-block">Display Size: </h6> <span class="error">${phone.mainFeatures.displaySize}</span></div>
         <div><h6 class="d-inline-block">Memory: </h6> <span class="error">${phone.mainFeatures.memory}</span></div>
         <div><h6 class="d-inline-block">Storage: </h6> <span class="error">${phone.mainFeatures.storage}</span></div>
         <h6 class="fw-bold pt-3">Others</h6>
-        <div><h6 class="d-inline-block">WLAN: </h6> <span class="error">${phone.others?.WLAN}</span></div>
-        <div><h6 class="d-inline-block">Bluetooth: </h6> <span class="error">${phone.others?.Bluetooth}</span></div>
-        <div><h6 class="d-inline-block">GPS: </h6> <span class="error">${phone.others?.GPS}</span></div>
-        <div><h6 class="d-inline-block">NFC: </h6> <span class="error">${phone.others?.NFC}</span></div>
-        <div><h6 class="d-inline-block">Radio: </h6> <span class="error">${phone.others?.Radio}</span></div>
-        <div><h6 class="d-inline-block">USB: </h6> <span class="error">${phone.others?.USB}</span></div>
+        <div><h6 class="d-inline-block">WLAN: </h6> <span class="error">${phone.others?.WLAN? phone.others.WLAN: 'WLAN Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">Bluetooth: </h6> <span class="error">${phone.others?.Bluetooth? phone.others.Bluetooth: 'Bluetooth Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">GPS: </h6> <span class="error">${phone.others?.GPS? phone.others.GPS: 'GPS Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">NFC: </h6> <span class="error">${phone.others?.NFC? phone.others.NFC: 'NFC Not Abailable Yet'}</span></div>
+        <div><h6 class="d-inline-block">Radio: </h6> <span class="error">${phone.others?.Radio? phone.others.Radio: 'Radio Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">USB: </h6> <span class="error">${phone.others?.USB? phone.others.USB: 'USB Not Abailable Yet'}</span> <span class="error-text"> </span></div>
         <h6 class="fw-bold pt-3">Sensor</h6>
         
     `;
@@ -114,7 +112,6 @@ const displayPhoneFullDetails = phone => {
         li.innerText = sen;
         div.appendChild(li);
         })
-    //--------------------
-    // console.log(phone.others); 
+    // Append din in modaBody.................
     modalBody.appendChild(div);
 };

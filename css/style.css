@@ -34,6 +34,10 @@
     border: 2px solid white !important;
     border-radius: 20px !important;
     box-shadow:  inset -5px -5px 15px rgba(0, 0, 0, 0.178), inset 5px 5px 15px rgba(126, 126, 126, 0.267);
+    transition: 0.5s;
+}
+.card:hover{
+    transform: translateY(-10px)
 }
 .card img{
     width: 50%;
