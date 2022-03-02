@@ -14,14 +14,20 @@
     <title>Phone Search</title>
 </head>
 <body>
+
+  <div id="spinar">
+    <img src="img/loading-buffering.gif" alt="">
+  </div>
     <!-- Search Box Area  -->
     <header>
         <div class="container">
-            <h1 class="text-center pt-5">Search and <span class="highlight fw-bold">Get</span> Phone Details</h1>
-            <p class="font-style text-center">If you want to know Phone Details. Click the search box and search your favorite phone</p>
+            <div class="header-shadow mt-4 mx-md-5">
+              <h1 class="text-center pt-4 text-warning.bg-gradient">Search and <span class="highlight fw-bold">Get</span> Phone Details</h1>
+            <p class="font-style text-center text-secondary">If you want to know Phone Details. Click the search box and search your favorite phone</p>
             <div class="search-box d-flex justify-content-center align-items-center mt-4 pb-5">
                 <input id="search-input" type="text" placeholder="Search your Phone">
                 <i onclick="searchText()" class="fas fa-search fw-bold ms-3"></i>
+            </div>
             </div>
         </div>
     </header>
@@ -31,6 +37,7 @@
             <div class="row d-grid">
                 <div id="show-phone" class="row row-cols-1 row-cols-md-3 g-4 bg-wite">
                 </div>
+                <button id="load-more-button" class="btn fw-bold w-25 mt-4">Load More</button>
             </div>
             <!-- Search Result Not Found Div  -->
             <div id="page-not-found"></div>

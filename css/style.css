@@ -3,8 +3,30 @@
     margin: 0;
     padding: 0;
 }
+/* Spinar  */
+#spinar{
+    position: absolute;
+    top:45%;
+    left: 45%;
+}
+#spinar img{
+    width: 80px;
+    height: auto;
+}
+/* load more button  */
+#load-more-button{
+    display: none;
+}
 
 /* Header Area Style  */
+.header-shadow{
+    border: 2px solid white;
+    border-radius: 20px;
+    box-shadow: inset -3px -3px 5px rgba(100, 100, 100, 0.178), inset 3px 3px 5px rgba(83, 83, 83, 0.267),
+                -3px -3px 5px rgba(100, 100, 100, 0.178), 3px 3px 5px rgba(83, 83, 83, 0.267);
+    background: linear-gradient(#fcfafb, #f4f3f5);
+    padding: 8px;
+}
 .highlight{
     color: rgb(0, 122, 223);
 }
@@ -29,6 +51,9 @@
 }
 
 /* Card Design  */
+.d-grid{
+    justify-items: center;
+}
 .card{
     padding: 20px;
     border: 2px solid white !important;

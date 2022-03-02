@@ -1,3 +1,9 @@
+// Spinar .............
+const spinar = document.getElementById('spinar');
+window.addEventListener('load', function(){
+    spinar.style.display = 'none';
+})
+
 // Get search input Text ----------------------------------------------------------------
 const searchText = () => {
     const searchInput = document.getElementById('search-input');
@@ -9,6 +15,7 @@ const searchText = () => {
         // Clear Phone Display Div........
         phoneDisplayDiv.textContent = '';
         const showErrorDiv = document.getElementById('page-not-found');
+        // Clear show Error Div........
         showErrorDiv.textContent = '';
         const div = document.createElement('div');
         div.innerHTML = `
@@ -40,17 +47,24 @@ const loadPhoneDetails = searchText => {
             else{
                 const showErrorDiv = document.getElementById('page-not-found');
                 showErrorDiv.textContent = '';
+                // console.log(data.data);
                 singlePhoneDetails(data.data);
+                // loadMoreButton(data.data);
             }
         });
 };
 // Get single Phone details ------------------------------------------------------------------
+
 const singlePhoneDetails = singlePhones => {
+    let phonePerPage = singlePhones.slice(0, 20);
+        if(phonePerPage.length > 19){
+            document.getElementById('load-more-button').style.display = 'block';
+        }
     const phoneDisplayDiv = document.getElementById('show-phone');
     // Clear Phone Display Div........
     phoneDisplayDiv.textContent = '';
     // Loop on phones and Set phone details .....
-    singlePhones.forEach( phone => {
+    phonePerPage.forEach( phone => {
         const div = document.createElement('div');
         div.classList.add('single-product')
         // div.length.slice(0, 10);
