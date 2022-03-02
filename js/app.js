@@ -97,14 +97,13 @@ const displayPhoneFullDetails = phone => {
         <div><h6 class="d-inline-block">Memory: </h6> <span class="error">${phone.mainFeatures.memory}</span></div>
         <div><h6 class="d-inline-block">Storage: </h6> <span class="error">${phone.mainFeatures.storage}</span></div>
         <h6 class="fw-bold pt-3">Others</h6>
-        <div><h6 class="d-inline-block">WLAN: </h6> <span class="error">${phone.others?.WLAN? phone.others.WLAN: 'WLAN Not Abailable Yet'}</span> <span class="error-text"> </span></div>
-        <div><h6 class="d-inline-block">Bluetooth: </h6> <span class="error">${phone.others?.Bluetooth? phone.others.Bluetooth: 'Bluetooth Not Abailable Yet'}</span> <span class="error-text"> </span></div>
-        <div><h6 class="d-inline-block">GPS: </h6> <span class="error">${phone.others?.GPS? phone.others.GPS: 'GPS Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">WLAN: </h6> <span class="error">${phone.others?.WLAN? phone.others.WLAN: 'WLAN Not Abailable Yet'}</span></div>
+        <div><h6 class="d-inline-block">Bluetooth: </h6> <span class="error">${phone.others?.Bluetooth? phone.others.Bluetooth: 'Bluetooth Not Abailable Yet'}</span></div>
+        <div><h6 class="d-inline-block">GPS: </h6> <span class="error">${phone.others?.GPS? phone.others.GPS: 'GPS Not Abailable Yet'}</span></div>
         <div><h6 class="d-inline-block">NFC: </h6> <span class="error">${phone.others?.NFC? phone.others.NFC: 'NFC Not Abailable Yet'}</span></div>
-        <div><h6 class="d-inline-block">Radio: </h6> <span class="error">${phone.others?.Radio? phone.others.Radio: 'Radio Not Abailable Yet'}</span> <span class="error-text"> </span></div>
-        <div><h6 class="d-inline-block">USB: </h6> <span class="error">${phone.others?.USB? phone.others.USB: 'USB Not Abailable Yet'}</span> <span class="error-text"> </span></div>
+        <div><h6 class="d-inline-block">Radio: </h6> <span class="error">${phone.others?.Radio? phone.others.Radio: 'Radio Not Abailable Yet'}</span></div>
+        <div><h6 class="d-inline-block">USB: </h6> <span class="error">${phone.others?.USB? phone.others.USB: 'USB Not Abailable Yet'}</span></div>
         <h6 class="fw-bold pt-3">Sensor</h6>
-        
     `;
     // Dom manupulation Sensor ................
     singleSensor.forEach(sen => {
