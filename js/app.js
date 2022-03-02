@@ -36,6 +36,8 @@ const loadPhoneDetails = searchText => {
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
         .then(data => {
+            // Phone Not found Condition ............
+            const phoneData = data.data;
             if(data.data.length === 0){
                 const showErrorDiv = document.getElementById('page-not-found');
                 const div = document.createElement('div');
@@ -44,27 +46,34 @@ const loadPhoneDetails = searchText => {
                 `;
                 showErrorDiv.appendChild(div);
             }
+            // Per page phone Condition...............
             else{
                 const showErrorDiv = document.getElementById('page-not-found');
                 showErrorDiv.textContent = '';
-                // console.log(data.data);
-                singlePhoneDetails(data.data);
-                // loadMoreButton(data.data);
+                const slicePhoneData = phoneData.slice(0, 20);
+                singlePhoneDetailsSearch(slicePhoneData);
             }
+            // Load More Button Condition .............
+            document.getElementById('load-more-button').addEventListener('click', function (){
+                singlePhoneDetailsSearch(phoneData);
+                if(phoneData.length > 20){
+                    document.getElementById('load-more-button').style.display = 'none';
+                }
+            })
         });
 };
 // Get single Phone details ------------------------------------------------------------------
 
-const singlePhoneDetails = singlePhones => {
-    let phonePerPage = singlePhones.slice(0, 20);
-        if(phonePerPage.length > 19){
+const singlePhoneDetailsSearch = singlePhones => {
+    // let phonePerPage = singlePhones.slice(0, 20);
+        if(singlePhones.length > 19){
             document.getElementById('load-more-button').style.display = 'block';
         }
     const phoneDisplayDiv = document.getElementById('show-phone');
     // Clear Phone Display Div........
     phoneDisplayDiv.textContent = '';
     // Loop on phones and Set phone details .....
-    phonePerPage.forEach( phone => {
+    singlePhones.forEach( phone => {
         const div = document.createElement('div');
         div.classList.add('single-product')
         // div.length.slice(0, 10);

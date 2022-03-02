@@ -1,9 +1,9 @@
-/* Body Style  */
+/* ------------- Body Style ------------- */
 *{
     margin: 0;
     padding: 0;
 }
-/* Spinar  */
+/* ------------- Spinar ------------- */
 #spinar{
     position: absolute;
     top:45%;
@@ -13,12 +13,12 @@
     width: 80px;
     height: auto;
 }
-/* load more button  */
+/* ------------- load more button ------------- */
 #load-more-button{
     display: none;
 }
 
-/* Header Area Style  */
+/* ------------- Header Area Style ------------- */
 .header-shadow{
     border: 2px solid white;
     border-radius: 20px;
@@ -27,8 +27,11 @@
     background: linear-gradient(#fcfafb, #f4f3f5);
     padding: 8px;
 }
+.add-color{
+    color:rgb(83, 83, 83);
+}
 .highlight{
-    color: rgb(0, 122, 223);
+    color: rgb(216, 0, 235);
 }
 .font-style{
     font-family: cursive;
@@ -50,7 +53,7 @@
     box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
 }
 
-/* Card Design  */
+/* ------------- Card Design ------------- */
 .d-grid{
     justify-items: center;
 }
@@ -86,7 +89,7 @@
     box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
 }
 
-/* Modal Style  */
+/* ------------- Modal Style ------------- */
 .modal-header{
     box-shadow: 0 -2px 5px rgba(143, 143, 143, 0.5), 0 2px 5px rgba(124, 124, 124, 0.733);
 }
@@ -99,10 +102,7 @@
     box-shadow: inset -2px -2px 5px rgba(100, 100, 100, 0.178), inset 2px 2px 2px rgba(83, 83, 83, 0.267);
 }
 
-
-
-
-/* Responsive  */
+/* ------------- Responsive ------------- */
 @media only screen and (max-width: 768px) {
     #search-input{
         width: 80%;
